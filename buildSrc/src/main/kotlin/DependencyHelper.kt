@@ -4,6 +4,7 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.kotlin
+import org.gradle.kotlin.dsl.project
 
 fun versionCatalogue(project: Project): VersionCatalog {
     return project
@@ -80,3 +81,6 @@ fun DependencyHandler.presentationModuleAndroidTestImplementation(project: Proje
     add("androidTestImplementation", kotlin("test"))
 }
 
+fun DependencyHandler.core() {
+    add("implementation", project(Modules.CORE))
+}
