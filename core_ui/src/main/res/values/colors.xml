@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorBackgroundDark">#1e1e2f</color>
+    <color name="colorPrimary">#11bb96</color>
+    <color name="windowSplashScreenBackground">#1e1e2f</color>
+    <color name="colorPrimaryVariant">#a7f3e2</color>
+    <color name="colorSecondary">#8A8D93</color>
+    <color name="colorSecondaryVariant">#919DA6</color>
+</resources>

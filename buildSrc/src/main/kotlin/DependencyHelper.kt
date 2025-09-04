@@ -84,3 +84,7 @@ fun DependencyHandler.presentationModuleAndroidTestImplementation(project: Proje
 fun DependencyHandler.core() {
     add("implementation", project(Modules.CORE))
 }
+
+fun DependencyHandler.coreUI() {
+    add("implementation", project(Modules.COREUI))
+}
