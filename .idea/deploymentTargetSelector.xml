@@ -5,19 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="getProducts_should_return_success_with_list_of_product_previews()">
+      <SelectionState runConfigName="login_should_authenticate_user()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="loadProduct_should_return_the_correct_product_detail()">
+      <SelectionState runConfigName="login_should_fail_after_passing_wrong_credentials()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="searchSuggestions_should_give_suggested_products()">
+      <SelectionState runConfigName="register_should_signup_user()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="searchProducts_should_give_non_empty_products_matching_the_search_query()">
+      <SelectionState runConfigName="AuthViewModelTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ProductViewModelTest">
+      <SelectionState runConfigName="ToolbarViewModelTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

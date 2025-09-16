@@ -44,7 +44,13 @@ fun Modal(
     backgroundColor: Color = MaterialTheme.colorScheme.background,
     shape: Shape = MaterialTheme.shapes.medium,
     onDismiss: (() -> Unit)? = null,
-    closeIcon: @Composable () -> Unit = { Icon(Icons.Default.Close, contentDescription = "Close") },
+    closeIcon: @Composable () -> Unit = {
+        Icon(
+            Icons.Default.Close,
+            contentDescription = "Close",
+            tint = Color.White
+        )
+    },
     content: @Composable () -> Unit
 ) {
     if (isOpen) {

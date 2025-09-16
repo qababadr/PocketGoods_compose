@@ -17,7 +17,11 @@ interface UserDao {
 
     @Transaction
     @Query("SELECT * FROM $USERS_TABLE WHERE id = :userId")
-    fun getCachedUserWithWishlist(userId: Long): Flow<UserWithWishlistAndProductAndImages>
+    fun getCachedUserWithWishlist(userId: Long): Flow<UserWithWishlistAndProductAndImages?>
+
+    @Transaction
+    @Query("SELECT * FROM $USERS_TABLE LIMIT 1")
+    fun getLatestCachedUser(): Flow<UserWithWishlistAndProductAndImages?>
 
     @Query("DELETE FROM $USERS_TABLE WHERE id = :userId")
     suspend fun clear(userId: Long)
