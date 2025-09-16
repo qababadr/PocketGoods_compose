@@ -17,7 +17,7 @@ interface ProductDao {
 
     @Transaction
     @Query("SELECT * FROM $PRODUCTS_TABLE WHERE id = :productId")
-    fun getProduct(productId: Long): Flow<ProductWithImages>
+    fun getProduct(productId: Long): Flow<ProductWithImages?>
 
     @Query("DELETE FROM $PRODUCTS_TABLE")
     suspend fun deleteAllProducts()

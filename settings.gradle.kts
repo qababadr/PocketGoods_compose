@@ -31,3 +31,6 @@ rootProject.name = "PocketGoods"
 include(":app")
 include(":core")
 include(":core_ui")
+include(":product_feature:domain")
+include(":product_feature:data")
+include(":product_feature:presentation")

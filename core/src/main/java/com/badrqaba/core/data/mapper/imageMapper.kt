@@ -23,10 +23,10 @@ fun Image.toImageEntity(modelId: Long): ImageEntity {
     )
 }
 
-fun ImageDTO.toImageEntity(modalId: Long): ImageEntity {
+fun ImageDTO.toImageEntity(modelId: Long): ImageEntity {
     return ImageEntity(
         uuid = uuid,
-        modelId = modalId,
+        modelId = modelId,
         filename = filename,
         preview = preview,
         original = original

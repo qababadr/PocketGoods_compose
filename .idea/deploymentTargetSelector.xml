@@ -5,19 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="TypingTextPreview">
+      <SelectionState runConfigName="getProducts_should_return_success_with_list_of_product_previews()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="HeaderPreview">
+      <SelectionState runConfigName="loadProduct_should_return_the_correct_product_detail()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Page404Preview">
+      <SelectionState runConfigName="searchSuggestions_should_give_suggested_products()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ProgressButtonPreview">
+      <SelectionState runConfigName="searchProducts_should_give_non_empty_products_matching_the_search_query()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="TextFieldPreview">
+      <SelectionState runConfigName="ProductViewModelTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -88,3 +88,4 @@ fun DependencyHandler.core() {
 fun DependencyHandler.coreUI() {
     add("implementation", project(Modules.COREUI))
 }
+

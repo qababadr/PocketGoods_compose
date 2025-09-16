@@ -25,6 +25,10 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core_ui" />
+            <option value="$PROJECT_DIR$/product_feature" />
+            <option value="$PROJECT_DIR$/product_feature/data" />
+            <option value="$PROJECT_DIR$/product_feature/domain" />
+            <option value="$PROJECT_DIR$/product_feature/presentation" />
           </set>
         </option>
       </GradleProjectSettings>
