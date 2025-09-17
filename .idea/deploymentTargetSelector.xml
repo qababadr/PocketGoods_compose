@@ -5,19 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="login_should_authenticate_user()">
+      <SelectionState runConfigName="getEntireWishlist_should_get_the_entire_user_wishlist_with_images()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="login_should_fail_after_passing_wrong_credentials()">
+      <SelectionState runConfigName="WishlistRepositoryImplTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="register_should_signup_user()">
+      <SelectionState runConfigName="WishlistManagerScreenPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="AuthViewModelTest">
+      <SelectionState runConfigName="getWishlistItems_should_get_entire_wishlist_for_the_current_user()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ToolbarViewModelTest">
+      <SelectionState runConfigName="deleteWishlistItem_should_delete_product_from_wishlist()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -33,6 +33,10 @@
             <option value="$PROJECT_DIR$/product_feature/data" />
             <option value="$PROJECT_DIR$/product_feature/domain" />
             <option value="$PROJECT_DIR$/product_feature/presentation" />
+            <option value="$PROJECT_DIR$/wishlist_feature" />
+            <option value="$PROJECT_DIR$/wishlist_feature/data" />
+            <option value="$PROJECT_DIR$/wishlist_feature/domain" />
+            <option value="$PROJECT_DIR$/wishlist_feature/presentation" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -20,7 +20,7 @@ object MockData {
 
     const val MOCK_PASSWORD = "Password@1"
     const val TOKEN = "28|zzpMGvjoMKDlu3PfJX7rLydMLNMtODuy3dOqjoqRea0ca3fe"
-    private const val BASE_URL = "http://192.168.1.7:8000"
+    private const val BASE_URL = "http://192.168.1.6:8000"
 
     val userDTO = UserDTO(
         id = 6,
