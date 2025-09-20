@@ -71,6 +71,12 @@ class AuthViewModel @Inject constructor(
             is AuthEvent.SetAuthenticatedUser -> _authState.update {
                 it.copy(authenticatedUser = event.user)
             }
+
+            is AuthEvent.OnLogout -> logout(
+                userId = event.userId,
+                onLoggedOut = event.onLoggedOut,
+                onError = event.onError
+            )
         }
     }
 
@@ -205,7 +211,7 @@ class AuthViewModel @Inject constructor(
         password: String,
         formType: FormType
     ) {
-        when(formType) {
+        when (formType) {
             FormType.LoginForm -> {
                 _loginState.update {
                     it.copy(
@@ -260,13 +266,14 @@ class AuthViewModel @Inject constructor(
                     alertText = message,
                 )
             }
-                FormType.RegisterForm -> _registerState.update {
-                    it.copy(
-                        alertVisible = visible,
-                        alertText = message,
-                        alertType = alertType
-                    )
-                }
+
+            FormType.RegisterForm -> _registerState.update {
+                it.copy(
+                    alertVisible = visible,
+                    alertText = message,
+                    alertType = alertType
+                )
+            }
         }
     }
 
@@ -339,6 +346,25 @@ class AuthViewModel @Inject constructor(
             }
             .flowOn(dispatchers.io)
             .launchIn(viewModelScope)
+    }
+
+    private fun logout(
+        userId: Long,
+        onLoggedOut: () -> Unit,
+        onError: () -> Unit
+    ) {
+        currentJob?.cancel()
+        currentJob = viewModelScope.launch(dispatchers.io) {
+            try {
+                useCases.logout(userId = userId)
+
+                _authState.update { it.copy(authenticatedUser = null) }
+
+                onLoggedOut()
+            } catch (_: Exception) {
+                onError()
+            }
+        }
     }
 
     private fun isValidRegisterForm(): Boolean {

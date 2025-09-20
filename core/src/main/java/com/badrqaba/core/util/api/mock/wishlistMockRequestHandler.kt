@@ -1,5 +1,6 @@
 package com.badrqaba.core.util.api.mock
 
+import com.badrqaba.core.data.remote.dto.WishlistItemDTO
 import com.badrqaba.core.data.remote.dto.WishlistResponseDTO
 import com.badrqaba.core.util.api.ApiResponse
 import com.google.gson.Gson
@@ -17,20 +18,33 @@ fun MockRequestHandleScope.toggleWishlist(
     val actualToken = data.headers["Authorization"]
     return if (actualToken == "Bearer ${MockData.TOKEN}") {
 
-        val updatedWishlist = MockData.userDTO.wishlist.filter { it.productId != productId }
+        val wishlist = MockData.authenticatedUserWishlist
+        val existingItem = wishlist.find { it.productId == productId }
 
-        val wishlistItemId = if (updatedWishlist.size < MockData.userDTO.wishlist.size) {
-            -1L
+        val responseDTO = if (existingItem != null) {
+            wishlist.remove(existingItem)
+            WishlistResponseDTO(
+                inWishlist = false,
+                wishlistItemId = -1L
+            )
         } else {
-            MockData.INSERTED_WISHLIST_ITEM_ID
+            wishlist.add(
+                WishlistItemDTO(
+                    id = MockData.INSERTED_WISHLIST_ITEM_ID,
+                    productId = productId,
+                    productDetail = null
+                )
+            )
+            WishlistResponseDTO(
+                inWishlist = true,
+                wishlistItemId = MockData.INSERTED_WISHLIST_ITEM_ID
+            )
         }
+
         respond(
             Gson().toJson(
                 ApiResponse(
-                    data = WishlistResponseDTO(
-                        inWishlist = false,
-                        wishlistItemId = wishlistItemId
-                    )
+                    data = responseDTO
                 )
             ),
             HttpStatusCode.OK,
@@ -52,9 +66,11 @@ fun MockRequestHandleScope.getEntireWishlist(
     val actualToken = data.headers["Authorization"]
     return if (actualToken == "Bearer ${MockData.TOKEN}") {
         respond(
-            Gson().toJson(ApiResponse(
-                data = MockData.userDTO.wishlist
-            )),
+            Gson().toJson(
+                ApiResponse(
+                    data = MockData.authenticatedUserWishlist
+                )
+            ),
             HttpStatusCode.OK,
             responseHeaders
         )

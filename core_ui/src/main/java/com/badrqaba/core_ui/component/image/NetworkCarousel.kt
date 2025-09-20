@@ -72,6 +72,7 @@ fun NetworkCarousel(
         ) { index ->
             NetworkImage(
                 data = images[index],
+                contentDescription = "image ${images.elementAt(index)}",
                 contentScale = contentScale,
                 modifier = Modifier.fillMaxSize(),
                 crossFade = 1000,

@@ -1,3 +1,8 @@
+import features_library.authenticationFeature
+import features_library.productFeature
+import features_library.settingsFeature
+import features_library.wishlistFeature
+
 plugins {
     id("com.android.application")
     alias(libs.plugins.kotlin.compose)
@@ -30,8 +35,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {
@@ -80,6 +85,13 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
 
     ktor(project)
+
+    core()
+    coreUI()
+    productFeature()
+    authenticationFeature()
+    wishlistFeature()
+    settingsFeature()
 
     testImplementation(kotlin("test"))
 }

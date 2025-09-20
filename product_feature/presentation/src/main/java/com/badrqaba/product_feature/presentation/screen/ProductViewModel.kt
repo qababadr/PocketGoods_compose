@@ -120,7 +120,7 @@ class ProductViewModel @Inject constructor(
                                 (_state.value.products
                                         + (resource.data?.data ?: emptyList()))
                             _state.value = _state.value.copy(
-                                products = newList,
+                                searchResults = newList.distinctBy { it.id },
                                 lastPage = resource.data?.lastPage ?: 1,
                                 isPageLoading = false
                             )
@@ -168,7 +168,9 @@ class ProductViewModel @Inject constructor(
     }
 
     private fun onNextPage() {
-        _state.value = _state.value.copy(currentPage = _state.value.currentPage + 1)
+        _state.value = _state.value.copy(
+            currentPage = _state.value.currentPage + 1
+        )
     }
 
     private fun getProducts() {
@@ -186,7 +188,7 @@ class ProductViewModel @Inject constructor(
                             val newList =
                                 (_state.value.products + (resource.data?.data ?: emptyList()))
                             _state.value = _state.value.copy(
-                                products = newList.distinct(),
+                                products = newList.distinctBy { it.id },
                                 lastPage = resource.data?.lastPage ?: 1,
                                 isPageLoading = false
                             )

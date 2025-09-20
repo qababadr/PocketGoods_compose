@@ -17,7 +17,7 @@ class SnackbarController(private val scope: CoroutineScope) {
     fun showSnackbar(
         snackbarHostState: SnackbarHostState,
         message: String,
-        actionLabel: String,
+        actionLabel: String = "",
         onDismiss: (() -> Unit)? = null,
         onActionPerformed: (() -> Unit)? = null,
         duration: SnackbarDuration = SnackbarDuration.Long

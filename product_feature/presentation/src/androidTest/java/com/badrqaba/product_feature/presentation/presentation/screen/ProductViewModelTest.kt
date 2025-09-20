@@ -181,7 +181,7 @@ class ProductViewModelTest {
             val successState = awaitItem()
             assertFalse(successState.isPageLoading)
             assertEquals(
-                successState.products,
+                successState.searchResults,
                 MockData
                     .searchPaginationResponse(query = searchQuery)
                     .data

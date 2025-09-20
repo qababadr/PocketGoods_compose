@@ -17,7 +17,7 @@ import com.badrqaba.core_ui.theme.Shapes
 @Composable
 fun SnackbarTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     severity: SnackbarSeverity = SnackbarSeverity.Info,
     content: @Composable () -> Unit
 ) {

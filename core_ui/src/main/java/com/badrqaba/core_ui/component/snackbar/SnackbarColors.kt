@@ -28,8 +28,11 @@ val warningBackgroundLight = Color(0xFFFFD54F)
 val warningBackgroundDark = Color(0xFF332701)
 
 @Composable
-fun snackbarIconColor(severity: SnackbarSeverity): Color {
-    return if (isSystemInDarkTheme()) {
+fun snackbarIconColor(
+    severity: SnackbarSeverity,
+    isDarkTheme: Boolean
+): Color {
+    return if (isDarkTheme) {
         when(severity) {
             SnackbarSeverity.Success -> successOnBackgroundDark
             SnackbarSeverity.Error -> errorOnBackgroundDark

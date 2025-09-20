@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,7 +25,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -195,18 +193,16 @@ private fun ToolbarPreview() {
                 toolbarState = toolbarState,
                 isDarkTheme = isDarkTheme,
                 onToolbarEvent = { event ->
-                    when (event) {
-                        ToolbarEvent.CloseModal -> toolbarState = toolbarState.copy(
+                    toolbarState = when (event) {
+                        ToolbarEvent.CloseModal -> toolbarState.copy(
                             isModalVisible = false
                         )
 
-                        is ToolbarEvent.OnLogout -> Unit
-
-                        ToolbarEvent.OpenModal -> toolbarState = toolbarState.copy(
+                        ToolbarEvent.OpenModal -> toolbarState.copy(
                             isModalVisible = true
                         )
 
-                        ToolbarEvent.ToggleFormType -> toolbarState = toolbarState.copy(
+                        ToolbarEvent.ToggleFormType -> toolbarState.copy(
                             formType = if (toolbarState.formType == FormType.LoginForm)
                                 FormType.RegisterForm else
                                 FormType.LoginForm
@@ -226,8 +222,6 @@ private fun ToolbarPreview() {
                                 if (loginState.email == MockData.MOCK_EMAIL &&
                                     loginState.password == MockData.MOCK_PASSWORD
                                 ) {
-
-
                                     authState = authState.copy(
                                         authenticatedUser = MockData
                                             .userDTO

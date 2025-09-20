@@ -4,20 +4,28 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2025-09-20T14:58:47.100292Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=320306623831" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="getEntireWishlist_should_get_the_entire_user_wishlist_with_images()">
+      <SelectionState runConfigName="ProductDetailScreenEndToEndTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="WishlistRepositoryImplTest">
+      <SelectionState runConfigName="ProductSearchScreenEndToEndTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="WishlistManagerScreenPreview">
+      <SelectionState runConfigName="WishlistEndToEndTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="getWishlistItems_should_get_entire_wishlist_for_the_current_user()">
+      <SelectionState runConfigName="AuthenticationEndToEndTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="deleteWishlistItem_should_delete_product_from_wishlist()">
+      <SelectionState runConfigName="MainEndToEndTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

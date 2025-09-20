@@ -79,4 +79,6 @@
     <string name="cd_suggested_product">suggested product %1$s</string>
     <string name="cd_search_input_search_button">submit search</string>
     <string name="txt_empty_product_list">Sorry we could\'nt find what your looking for</string>
+    <string name="lbl_discount">Save on today\'s offers</string>
+    <string name="cd_logout_menu_item">logout menu item</string>
 </resources>

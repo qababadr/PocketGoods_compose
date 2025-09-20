@@ -36,7 +36,7 @@ class ProductRepositoryImpl @Inject constructor(
 
             try {
                 val response = apiService.rawGet<PaginationResponseDTO<ProductPreviewDTO>>(
-                    url = "products/page=$page",
+                    url = "products?page=${page}",
                 )
 
                 emit(

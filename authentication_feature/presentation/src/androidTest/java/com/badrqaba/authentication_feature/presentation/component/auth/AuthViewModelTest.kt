@@ -13,6 +13,7 @@ import com.badrqaba.authentication_feature.domain.use_case.GetCachedAuthenticate
 import com.badrqaba.authentication_feature.domain.use_case.LoginUseCase
 import com.badrqaba.authentication_feature.domain.use_case.LogoutUseCase
 import com.badrqaba.authentication_feature.domain.use_case.RegisterUseCase
+import com.badrqaba.authentication_feature.presentation.auth.AuthEvent
 import com.badrqaba.authentication_feature.presentation.auth.AuthViewModel
 import com.badrqaba.authentication_feature.presentation.auth.login.LoginFormEvent
 import com.badrqaba.authentication_feature.presentation.auth.register.RegisterFormEvent
@@ -35,6 +36,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
@@ -181,5 +183,30 @@ class AuthViewModelTest {
         )
 
         advanceUntilIdle()
+    }
+
+    @Test
+    fun logout_should_sign_out_user(): Unit = runTest {
+
+        var onErrorCalled = false
+
+        viewModel.onAuthEvent(event = AuthEvent.OnLogout(
+            userId = MockData.userDTO.id,
+            onLoggedOut = {},
+            onError = {
+                onErrorCalled = true
+            }
+        ))
+
+        advanceUntilIdle()
+
+        val cachedUser = mockDatabase
+            .userDao()
+            .getLatestCachedUser()
+            .firstOrNull()
+            ?.user
+
+        assertNull(cachedUser)
+        assertFalse(onErrorCalled)
     }
 }

@@ -44,7 +44,6 @@ fun ProductsFragment(
     onViewProduct: (Long) -> Unit,
     onToggleWishlist: (productId: Long, productTitle: String) -> Unit,
     authenticatedUser: User? = null,
-    isSearchEnabled: Boolean = false,
     shouldPaginate: Boolean = false,
 ) {
 
@@ -61,18 +60,12 @@ fun ProductsFragment(
     LaunchedEffect(shouldPaginate) {
         if (shouldPaginate && !state.isPageLoading) {
             onEvent(ProductEvent.OnNextPage)
-            onEvent(
-                if (isSearchEnabled) ProductEvent.SearchProducts
-                else ProductEvent.GetProducts
-            )
+            onEvent(ProductEvent.GetProducts)
         }
     }
 
     LaunchedEffect(Unit) {
-        onEvent(
-            if (isSearchEnabled) ProductEvent.SearchProducts
-            else ProductEvent.GetProducts
-        )
+        onEvent( ProductEvent.GetProducts)
     }
 
     if (state.isPageLoading && state.products.isEmpty()) {

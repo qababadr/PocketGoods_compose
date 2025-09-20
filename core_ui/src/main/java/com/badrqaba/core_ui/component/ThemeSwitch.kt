@@ -28,7 +28,9 @@ fun ThemeSwitch(
     Switch(
         modifier = Modifier
             .semantics {
-                contentDescription = context.getString(R.string.cd_theme_switch)
+                contentDescription = context.getString(
+                    R.string.cd_theme_switch
+                )
             },
         checked = isDarkTheme,
         colors = SwitchDefaults.colors().copy(
@@ -40,7 +42,7 @@ fun ThemeSwitch(
                 painter = if (isDarkTheme) painterResource(id = R.drawable.moon_waning_crescent) else
                     painterResource(id = R.drawable.white_balance_sunny),
                 contentDescription = if (isDarkTheme) stringResource(R.string.cd_unchecked_icon) else
-                    stringResource(R.string.cd_checked_icon)
+                    stringResource(R.string.cd_checked_icon),
             )
         }
     )

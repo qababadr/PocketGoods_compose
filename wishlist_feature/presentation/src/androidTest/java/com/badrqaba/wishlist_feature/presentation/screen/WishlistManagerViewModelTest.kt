@@ -30,7 +30,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
-import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlin.test.fail
 
@@ -43,12 +42,6 @@ class WishlistManagerViewModelTest {
     private lateinit var mockCryptoService: CryptoService
 
     private val user = MockData.userDTO
-    private val correctWishlist = MockData
-        .loginResponse
-        .data
-        .user
-        .wishlist
-        .map { it.toWishlistItem() }
 
     @Before
     fun setUp() {
@@ -81,6 +74,8 @@ class WishlistManagerViewModelTest {
             useCases = useCases,
             dispatchers = testDispatchers
         )
+
+        MockData.resetWishlist()
     }
 
     @Test
@@ -107,7 +102,12 @@ class WishlistManagerViewModelTest {
 
             val successState = awaitItem()
             assertFalse(successState.isPageLoading)
-            assertEquals(successState.wishlist, correctWishlist)
+            assertEquals(
+                successState.wishlist,
+                MockData
+                    .authenticatedUserWishlist
+                    .map { it.toWishlistItem() }
+            )
 
             cancelAndIgnoreRemainingEvents()
         }
@@ -115,13 +115,26 @@ class WishlistManagerViewModelTest {
 
     @Test
     fun deleteWishlistItem_should_delete_product_from_wishlist(): Unit = runTest {
+        mockDatabase
+            .userDao()
+            .insertUser(
+                user = user.toUserEntity(
+                    token = mockCryptoService.encrypt(
+                        data = MockData.TOKEN
+                    )
+                )
+            )
+
         viewModel.onEvent(
             event = WishlistManagerScreenEvent.GetWishlistItems(user.id)
         )
 
         advanceUntilIdle()
 
-        val selectedWishlistItem = correctWishlist.first()
+        val selectedWishlistItem = MockData
+            .authenticatedUserWishlist
+            .map { it.toWishlistItem() }
+            .first()
 
         viewModel.state.test {
             viewModel.onEvent(

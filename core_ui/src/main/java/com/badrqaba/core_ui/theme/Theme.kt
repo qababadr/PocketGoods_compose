@@ -20,6 +20,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import com.badrqaba.core_ui.util.IS_DARK_THEME
+import com.badrqaba.core_ui.util.IS_LIGHT_THEME
 
 private val darkColorScheme = darkColorScheme(
     primary = PrimaryDark,
@@ -59,6 +63,7 @@ fun PocketGoodsTheme(
             val context = LocalContext.current
             if (isDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
+
         isDarkTheme -> darkColorScheme
         else -> lightColorScheme
     }
@@ -71,12 +76,18 @@ fun PocketGoodsTheme(
         DisposableEffect(isDarkTheme) {
             activity.enableEdgeToEdge(
                 statusBarStyle = if (!isDarkTheme) {
-                    SystemBarStyle.light(Color.Transparent.toArgb(), Color.Transparent.toArgb())
+                    SystemBarStyle.light(
+                        Color.Transparent.toArgb(),
+                        Color.Transparent.toArgb()
+                    )
                 } else {
                     SystemBarStyle.dark(Color.Transparent.toArgb())
                 },
                 navigationBarStyle = if (!isDarkTheme) {
-                    SystemBarStyle.light(Color.Transparent.toArgb(), Color.Transparent.toArgb())
+                    SystemBarStyle.light(
+                        Color.Transparent.toArgb(),
+                        Color.Transparent.toArgb()
+                    )
                 } else {
                     SystemBarStyle.dark(Color.Transparent.toArgb())
                 }
@@ -95,6 +106,9 @@ fun PocketGoodsTheme(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(color = MaterialTheme.colorScheme.background)
+                    .semantics {
+                        contentDescription = if (isDarkTheme) IS_DARK_THEME else IS_LIGHT_THEME
+                    }
             ) {
                 content()
             }

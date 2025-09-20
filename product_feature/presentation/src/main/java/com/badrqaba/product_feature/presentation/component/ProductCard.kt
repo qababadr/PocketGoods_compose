@@ -88,7 +88,8 @@ fun ProductCard(
                             .zIndex(1f)
                             .semantics {
                                 contentDescription = context.getString(
-                                    R.string.cd_toggle_wishlist, product.title
+                                    R.string.cd_toggle_wishlist,
+                                    product.title
                                 )
                             },
                         contentDescription = context.getString(

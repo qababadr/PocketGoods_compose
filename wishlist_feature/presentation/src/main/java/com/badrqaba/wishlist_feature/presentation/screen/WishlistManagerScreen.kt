@@ -180,7 +180,8 @@ fun WishlistManagerScreen(
                                         )
                                     },
                                     testTag = context.getString(
-                                        R.string.cd_open_delete_modal
+                                        R.string.cd_open_delete_modal,
+                                        product.title
                                     )
                                 )
                             }

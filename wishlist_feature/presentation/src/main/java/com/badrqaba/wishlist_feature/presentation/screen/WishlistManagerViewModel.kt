@@ -55,7 +55,6 @@ class WishlistManagerViewModel @Inject constructor(
 
     private fun getWishlistItems(userId: Long) {
         currentJob?.cancel()
-//        currentJob = viewModelScope.launch(context = dispatchers.io) {
         currentJob = useCases
             .getEntireWishlist(userId = userId)
             .onEach { resource ->
@@ -79,7 +78,6 @@ class WishlistManagerViewModel @Inject constructor(
             }
             .flowOn(dispatchers.io)
             .launchIn(viewModelScope)
-//        }
     }
 
     private fun deleteWishlistItem(

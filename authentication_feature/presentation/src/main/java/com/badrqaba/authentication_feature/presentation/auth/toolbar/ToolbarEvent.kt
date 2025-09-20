@@ -6,10 +6,4 @@ sealed class ToolbarEvent {
     data object CloseModal : ToolbarEvent()
 
     data object OpenModal : ToolbarEvent()
-
-    data class OnLogout(
-        val userId: Long,
-        val onLoggedOut: () -> Unit,
-        val onError: () -> Unit
-    ) : ToolbarEvent()
 }

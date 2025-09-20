@@ -10,7 +10,7 @@ sealed class Screen(val route: String) {
     fun <T> path(vararg args: Pair<String, T>): String {
         var finalRoute = route
         args.forEach { (key, value) ->
-            finalRoute = finalRoute.replace(key, value.toString())
+            finalRoute = finalRoute.replace("{$key}", value.toString())
         }
         return finalRoute
     }

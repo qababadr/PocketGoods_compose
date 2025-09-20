@@ -20,7 +20,7 @@ object MockData {
 
     const val MOCK_PASSWORD = "Password@1"
     const val TOKEN = "28|zzpMGvjoMKDlu3PfJX7rLydMLNMtODuy3dOqjoqRea0ca3fe"
-    private const val BASE_URL = "http://192.168.1.6:8000"
+    private const val BASE_URL = "http://192.168.1.2:8000"
 
     val userDTO = UserDTO(
         id = 6,
@@ -77,6 +77,61 @@ object MockData {
                             preview = "$BASE_URL/media/2/conversions/sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay-thumbnail.jpg",
                             original = "$BASE_URL/media/2/sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay.jpg"
                         )
+                    )
+                )
+            )
+        )
+    )
+
+    val authenticatedUserWishlist = mutableListOf(
+        WishlistItemDTO(
+            id = 7,
+            productId = 3,
+            productDetail = ProductDTO(
+                id = 3,
+                title = "Headphones",
+                category = "Electronics",
+                price = 129.99,
+                quantity = 150,
+                description = "Noise-cancelling over-ear headphones.",
+                media = listOf(
+                    ImageDTO(
+                        uuid = "eebfe1cc-2891-4bec-91ce-74def6c7a98d",
+                        filename = "headphones-814055_1280image-by-stephanie-robertson-from-pixabay.jpg",
+                        preview = "$BASE_URL/media/5/conversions/headphones-814055_1280image-by-stephanie-robertson-from-pixabay-thumbnail.jpg",
+                        original = "$BASE_URL/media/5/headphones-814055_1280image-by-stephanie-robertson-from-pixabay.jpg"
+                    ),
+                    ImageDTO(
+                        uuid = "d6c9ca2a-e300-4231-9278-70693694fce4",
+                        filename = "image-by-dmitrijs-bojarovs-from-pixabay.jpg",
+                        preview = "$BASE_URL/media/6/conversions/image-by-dmitrijs-bojarovs-from-pixabay-thumbnail.jpg",
+                        original = "$BASE_URL/media/6/image-by-dmitrijs-bojarovs-from-pixabay.jpg"
+                    )
+                )
+            )
+        ),
+        WishlistItemDTO(
+            id = 12,
+            productId = 1,
+            productDetail = ProductDTO(
+                id = 1,
+                title = "Sunglasses",
+                category = "Accessories",
+                price = 20.99,
+                quantity = 100,
+                description = "Stylish sunglasses for a sunny day.",
+                media = listOf(
+                    ImageDTO(
+                        uuid = "9837ee14-758a-4052-97cd-83c9ee4c2fdc",
+                        filename = "aviator-sunglasses-2592111_1280_image-by-sandeep-handa-from-pixabay.jpg",
+                        preview = "$BASE_URL/media/1/conversions/aviator-sunglasses-2592111_1280_image-by-sandeep-handa-from-pixabay-thumbnail.jpg",
+                        original = "$BASE_URL/media/1/aviator-sunglasses-2592111_1280_image-by-sandeep-handa-from-pixabay.jpg"
+                    ),
+                    ImageDTO(
+                        uuid = "48423fd0-5b18-4604-846f-3c9e72d19056",
+                        filename = "sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay.jpg",
+                        preview = "$BASE_URL/media/2/conversions/sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay-thumbnail.jpg",
+                        original = "$BASE_URL/media/2/sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay.jpg"
                     )
                 )
             )
@@ -253,6 +308,65 @@ object MockData {
     fun logoutResponse(hasCorrectToken: Boolean) = ApiResponse(
         data = if (hasCorrectToken) true else null
     )
+
+    fun resetWishlist() {
+        val newWishlist = mutableListOf(
+            WishlistItemDTO(
+                id = 7,
+                productId = 3,
+                productDetail = ProductDTO(
+                    id = 3,
+                    title = "Headphones",
+                    category = "Electronics",
+                    price = 129.99,
+                    quantity = 150,
+                    description = "Noise-cancelling over-ear headphones.",
+                    media = listOf(
+                        ImageDTO(
+                            uuid = "eebfe1cc-2891-4bec-91ce-74def6c7a98d",
+                            filename = "headphones-814055_1280image-by-stephanie-robertson-from-pixabay.jpg",
+                            preview = "$BASE_URL/media/5/conversions/headphones-814055_1280image-by-stephanie-robertson-from-pixabay-thumbnail.jpg",
+                            original = "$BASE_URL/media/5/headphones-814055_1280image-by-stephanie-robertson-from-pixabay.jpg"
+                        ),
+                        ImageDTO(
+                            uuid = "d6c9ca2a-e300-4231-9278-70693694fce4",
+                            filename = "image-by-dmitrijs-bojarovs-from-pixabay.jpg",
+                            preview = "$BASE_URL/media/6/conversions/image-by-dmitrijs-bojarovs-from-pixabay-thumbnail.jpg",
+                            original = "$BASE_URL/media/6/image-by-dmitrijs-bojarovs-from-pixabay.jpg"
+                        )
+                    )
+                )
+            ),
+            WishlistItemDTO(
+                id = 12,
+                productId = 1,
+                productDetail = ProductDTO(
+                    id = 1,
+                    title = "Sunglasses",
+                    category = "Accessories",
+                    price = 20.99,
+                    quantity = 100,
+                    description = "Stylish sunglasses for a sunny day.",
+                    media = listOf(
+                        ImageDTO(
+                            uuid = "9837ee14-758a-4052-97cd-83c9ee4c2fdc",
+                            filename = "aviator-sunglasses-2592111_1280_image-by-sandeep-handa-from-pixabay.jpg",
+                            preview = "$BASE_URL/media/1/conversions/aviator-sunglasses-2592111_1280_image-by-sandeep-handa-from-pixabay-thumbnail.jpg",
+                            original = "$BASE_URL/media/1/aviator-sunglasses-2592111_1280_image-by-sandeep-handa-from-pixabay.jpg"
+                        ),
+                        ImageDTO(
+                            uuid = "48423fd0-5b18-4604-846f-3c9e72d19056",
+                            filename = "sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay.jpg",
+                            preview = "$BASE_URL/media/2/conversions/sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay-thumbnail.jpg",
+                            original = "$BASE_URL/media/2/sunglasses-178151_1280image-by-pawet-ludzinski-from-pixabay.jpg"
+                        )
+                    )
+                )
+            )
+        )
+        authenticatedUserWishlist.clear()
+        authenticatedUserWishlist.addAll(newWishlist)
+    }
 
     const val INSERTED_WISHLIST_ITEM_ID = 13L
 

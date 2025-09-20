@@ -5,6 +5,7 @@ import com.badrqaba.core.domain.model.ProductPreview
 
 data class ProductState(
     val products: List<ProductPreview> = emptyList(),
+    val searchResults: List<ProductPreview> = emptyList(),
     val lastPage: Int = 1,
     val isPageLoading: Boolean = true,
     val currentPage: Int = 1,

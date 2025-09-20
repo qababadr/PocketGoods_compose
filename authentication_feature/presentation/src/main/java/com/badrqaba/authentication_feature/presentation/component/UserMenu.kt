@@ -146,6 +146,9 @@ fun UserMenu(
             HorizontalDivider()
 
             DropdownMenuItem(
+                modifier = Modifier.semantics {
+                    contentDescription = context.getString(R.string.cd_logout_menu_item)
+                },
                 text = {
                     Text(
                         text = stringResource(id = R.string.lbl_logout),
