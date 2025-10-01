@@ -22,10 +22,10 @@
       <SelectionState runConfigName="WishlistEndToEndTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="AuthenticationEndToEndTest">
+      <SelectionState runConfigName="AuthViewModelTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainEndToEndTest">
+      <SelectionState runConfigName="WishlistManagerViewModelTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

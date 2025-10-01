@@ -8,7 +8,7 @@ fun DependencyHandler.authenticationFeatureDomain() {
 }
 
 fun DependencyHandler.androidTestAuthenticationData() {
-    add("implementation", project(Modules.AUTH_DATA))
+    add("androidTestImplementation", project(Modules.AUTH_DATA))
 }
 
 fun DependencyHandler.authenticationFeature() {

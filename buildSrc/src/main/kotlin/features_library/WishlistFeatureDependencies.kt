@@ -8,7 +8,7 @@ fun DependencyHandler.wishlistFeatureDomain() {
 }
 
 fun DependencyHandler.androidTestWishlistData() {
-    add("implementation", project(Modules.WISHLIST_DATA))
+    add("androidTestImplementation", project(Modules.WISHLIST_DATA))
 }
 
 fun DependencyHandler.wishlistFeature() {
